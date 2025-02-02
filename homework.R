@@ -18,6 +18,7 @@
 # Load the readr package
 
 # ANSWER
+library(readr)
 
 
 ### QUESTION 2 ----- 
@@ -45,6 +46,8 @@
 col_names  <-  c("trial_num","speed_actual","speed_response","correct")
 
 # ANSWER
+ds1 <- read_tsv("data_A/6191_1.txt", col_names = col_names, skip = 7)
+print(ds1)
 
 
 
