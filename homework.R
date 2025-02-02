@@ -58,6 +58,10 @@ print(ds1)
 # Then write the new data to a CSV file in the "data_cleaned" folder
 
 # ANSWER
+ds1$trial_num_new <- ds1$trial_num + 100
+print(ds1)
+
+write_csv(ds1, file = "data_cleaned/data.csv")
 
 
 ### QUESTION 4 ----- 
@@ -66,6 +70,10 @@ print(ds1)
 # Store it to a variable
 
 # ANSWER
+
+file_list <- list.files("data_A", full.names = TRUE)
+print(file_list)
+
 
 
 ### QUESTION 5 ----- 
