@@ -77,7 +77,6 @@ print(file_list)
 
 
 ### QUESTION 5 ----- 
-
 # Read all of the files in data_A into a single tibble called ds
 
 # ANSWER
@@ -110,6 +109,8 @@ print(ds)
 # Re-import the data so that filename becomes a column
 
 # ANSWER
+ds <- read_tsv(file_list, col_names = col_names, skip = 7, col_types = "iccl", id = "filename") 
+print(ds)
 
 
 ### QUESTION 8 -----
@@ -119,4 +120,10 @@ print(ds)
 # There are two sheets of data -- import each one into a new tibble
 
 # ANSWER
+# Install the package via "install.packages("readxl")"
+library(readxl)
+participant <- read_excel("data_B/participant_info.xlsx", sheet = "participant")
+print(participant)
 
+testdate <- read_excel("data_B/participant_info.xlsx", sheet = "testdate", col_names = c("ID", "date"))
+print(testdate)
