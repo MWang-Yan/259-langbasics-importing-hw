@@ -81,6 +81,8 @@ print(file_list)
 # Read all of the files in data_A into a single tibble called ds
 
 # ANSWER
+ds <- read_tsv(file_list, col_names = col_names, skip = 7)
+print(ds)
 
 
 ### QUESTION 6 -----
@@ -94,7 +96,11 @@ print(file_list)
 # (It should work now, but you'll see a warning because of the erroneous data point)
 
 # ANSWER
+ds <- read_tsv(file_list, col_names = col_names, skip = 7, col_types = "iccl")
+print(ds)
 
+ds$trial_num_new <- ds$trial_num + 100
+print(ds)
 
 ### QUESTION 7 -----
 
