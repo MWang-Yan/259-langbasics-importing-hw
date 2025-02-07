@@ -1,5 +1,5 @@
 #PSYC 259 Homework 1 - Data Import
-#For full credit, provide answers for at least 6/8 questions
+#For full credit, provide answers for at least 6/8 questions (8/8)
 
 #List names of students collaborating with (no more than 2): 
 
@@ -112,6 +112,20 @@ print(ds)
 ds <- read_tsv(file_list, col_names = col_names, skip = 7, col_types = "iccl", id = "filename") 
 print(ds)
 
+#MComment: Looks good! See way to pull info from file name below - 
+
+library(tidyr)
+ds <- ds %>% extract(filename, into = c("id","session"), "(\\d{4})_(\\d{1})") 
+#Extract takes a character variable, names of where to put the extracted data,
+# and then a regular expression saying what pattern to look for.
+# each part in parentheses is one variable to extract
+# \\d{4} means 4 digits, \\d{1} means 1 digit
+
+# Or use "separate", which breaks everything by any delimiter (or a custom one)
+# data_A/6191_1.txt will turn into:
+# data   A   6191   1   txt
+# if we only want to keep 6191 and 1, we can put NAs for the rest
+ds <- ds %>% separate(filename, into = c(NA, NA, "id", "session", NA))
 
 ### QUESTION 8 -----
 
